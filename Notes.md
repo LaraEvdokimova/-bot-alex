@@ -7,6 +7,115 @@
 'каждый объект является экземпляром определенного класса'
 'классы образуют иерархии'
 
+*Design pattern Singleton*
+
+Singleton pattern is one of the simplest design patterns in Java.
+This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.
+This pattern involves a single class which is responsible to create an object = only single object gets created.
+This class provides a way to access its only object which can be accessed directly.
+
+We are going to create a SingleObject class.
+SingleObject class have its constructor as private and have a static instance of itself.
+SingleObject class provides a static method to get its static instance to outside world.
+
+Step 1
+
+Create a Singleton Class.
+
+SingleObject.java
+
+public class SingleObject {
+
+   //create an object of SingleObject
+   private static SingleObject instance = new SingleObject();
+
+   //make the constructor private so that this class cannot be
+   //instantiated
+   private SingleObject(){}
+
+   //Get the only object available
+   public static SingleObject getInstance(){
+      return instance;
+   }
+
+   public void showMessage(){
+      System.out.println("Hello World!");
+   }
+}
+
+Step 2
+
+Get the only object from the singleton class.
+
+SingletonPatternDemo.java
+
+public class SingletonPatternDemo {
+   public static void main(String[] args) {
+
+      //illegal construct
+      //Compile Time Error: The constructor SingleObject() is not visible
+      //SingleObject object = new SingleObject();
+
+      //Get the only object available
+      SingleObject object = SingleObject.getInstance();
+
+      //show the message
+      object.showMessage();
+   }
+}
+Step 3
+Verify the output.
+
+Hello World!
+
+*Selenium*
+Это инструмент для автоматизации действий веб-браузера. 
+В большинстве случаев используется для тестирования Web-приложений, но этим не ограничивается. 
+В частности, он может быть использован для решения рутинных задач администрирования сайта или 
+регулярного получения данных из различных источников.
+
+Selenium 2 Webdriver — в пакете инструментов Selenium для автоматизации. 
+По сравнению с Selenium RC, Webdriver использует совершенно иной способ взаимодействия с браузерами. 
+Он напрямую вызывает команды браузера, используя родной для каждого конкретного браузера API. 
+Как совершаются эти вызовы и какие функции они выполняют зависит от конкретного браузера. 
+В то же время Selenium RC внедрял код JavaScript в браузер при запуске и использовал его для управления веб-приложением. 
+
+Тест в Selenium 3.x взаимодействует с браузером в конечном узле (end node) по протоколу JSON wire 
+в локальной конечной точке (local end). 
+Такой подход требует кодирования и декодирования запросов API.
+
+Test - Selenium Driver/Node - Grid/Node - Driver/Node - Browser/Node
+
+Selenium 4 WebDriver будет полностью стандартизирован W3C. 
+API WebDriver стало актуальным и за пределами Selenium и используется в различных инструментах для автоматизации. 
+Например, на нем основываются такие мобильные инструменты для тестирования, как Appium и iOS Driver. 
+Стандарт W3C также отвечает за совместимость между различными программными приложениями с WebDriver API.
+
+*Selenium Java*
+
+Hello World - просто открыть страничку и заассертить там что-то
+
+import org.junit.BeforeClass
+
+public class Example {
+    BeforeClass public static void onlyOnce() {
+   // put init logic here
+  }
+}
+
+Или
+@ Before
+public void setUp() throws Exception {
+  // put init logic here
+}
+
+чтобы откатить что-то или высвободить ресурсы можно добавить:
+
+@ After
+public void release() throws Exception {
+  // put release logic here
+}
+
 *Gradle*
 Система автоматической сборки, построенная на принципах Apache Ant и Apache Maven, но предоставляющая DSL на языках Groovy и Kotlin вместо традиционной XML-образной формы представления конфигурации проекта.
 Платформа: Java Virtual Machine
